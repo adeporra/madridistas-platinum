@@ -176,7 +176,7 @@ async function loadEager(doc) {
     || Object.keys(getAllMetadata('campaign')).length
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-unresolved, import/no-relative-packages
-    const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
+    const { loadEager: runEager } = await import('../../plugins/experimentation/src/index.js');
     await runEager(document, { audiences: AUDIENCES }, pluginContext);
   }
 
@@ -221,13 +221,13 @@ async function loadLazy(doc) {
     || Object.keys(getAllMetadata('campaign')).length
     || Object.keys(getAllMetadata('audience')).length) {
     // eslint-disable-next-line import/no-unresolved, import/no-relative-packages
-    const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
+    const { loadLazy: runLazy } = await import('../../plugins/experimentation/src/index.js');
     await runLazy(document, { audiences: AUDIENCES }, pluginContext);
   }
   
   const loadQuickEdit = async (...args) => {
     // eslint-disable-next-line import/no-cycle
-    const { default: initQuickEdit } = await import('../tools/quick-edit/quick-edit.js');
+    const { default: initQuickEdit } = await import('../../tools/quick-edit/quick-edit.js');
     initQuickEdit(...args);
   };
 
@@ -250,7 +250,7 @@ async function loadLazy(doc) {
 (() => {
   const hasQE = new URL(window.location.href).searchParams.has('quick-edit');
   // eslint-disable-next-line import/no-cycle
-  if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
+  if (hasQE) import('../../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
 })();
 
 /**

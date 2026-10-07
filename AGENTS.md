@@ -27,23 +27,29 @@ The repository provides the basic structure, blocks, and configuration needed to
 ## Project Structure
 
 ```
-├── blocks/          # Reusable content blocks
-    └── {blockname}/   - Individual block directory
-        ├── {blockname}.js      # Block's JavaScript
-        └── {blockname}.css     # Block's styles
-├── styles/          # Global styles and CSS
-    ├── styles.css          # Minimal global styling and layout for your website required for LCP
-    ├── lazy-styles.css     # Additional global styling and layout for below the fold/post LCP content
-    └── fonts.css           # Font definitions
-├── scripts/         # JavaScript libraries and utilities
-    ├── aem.js           # Core AEM Library for Edge Delivery page decoration logic (NEVER MODIFY THIS FILE)
-    ├── scripts.js       # Global JavaScript utilities, main entry point for page decoration
-    └── delayed.js       # Delayed functionality such as martech loading
-├── fonts/           # Web fonts
-├── icons/           # SVG icons
+├── nfl/             # Site assets; runtime codeBasePath is /nfl
+│   ├── blocks/      # Reusable content blocks
+│   │   └── {blockname}/
+│   │       ├── {blockname}.js
+│   │       └── {blockname}.css
+│   ├── styles/      # Global styles and CSS
+│   │   ├── styles.css      # Minimal styling required for LCP
+│   │   ├── lazy-styles.css # Below-the-fold/post-LCP styles
+│   │   └── fonts.css      # Font definitions
+│   ├── scripts/     # JavaScript libraries and utilities
+│   │   ├── aem.js         # Core AEM Library (NEVER MODIFY THIS FILE)
+│   │   ├── scripts.js     # Main entry point for page decoration
+│   │   └── delayed.js     # Delayed functionality
+│   ├── fonts/       # Web fonts
+│   └── icons/       # SVG icons
+├── plugins/         # Shared plugins; experimentation/src is served via .hlxignore
+├── tools/           # Shared authoring and importer tools
 ├── head.html        # Global HTML head content
 └── 404.html         # Custom 404 page
 ```
+
+Imports from `nfl/scripts/` to root-level plugins and tools use `../../`.
+Authored icon URLs use `/nfl/icons/`; font URLs remain relative to `nfl/styles/`.
 
 ## Code Style Guidelines
 
