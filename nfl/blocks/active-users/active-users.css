@@ -1,0 +1,20 @@
+main .active-users {
+  padding: 24px;
+  border: 1px solid var(--dark-color);
+  border-radius: 12px;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+main .active-users .active-users-value {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+main .active-users .active-users-status {
+  font-size: var(--body-font-size-xs);
+}
